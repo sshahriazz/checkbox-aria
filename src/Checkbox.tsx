@@ -15,11 +15,12 @@ export function Checkbox(props: AriaCheckboxProps) {
   let { focusProps, isFocusVisible } = useFocusRing();
 
   let checkboxClassName = classNames(
-    state.isSelected ? "bgIndigo group-active:bg-indigo-600" : "isSelected",
+    state.isSelected ? "bgIndigo group-active:bg-indigo-600" : "bgWhite",
+    "selected",
     props.isDisabled
-      ? "borderGrayThree"
+      ?  "borderGrayThree"
       : isFocusVisible || state.isSelected
-      ? "bgIndigo group-active:border-indigo-600"
+      ? "indigoBorder group-active:border-indigo-600"
       : "borderGrayFive group-active:border-gray-600",
     "isVisible",
     isFocusVisible ? "shadowOutline" : "",
@@ -34,12 +35,12 @@ export function Checkbox(props: AriaCheckboxProps) {
   );
 
   return (
-    <label  style={{ display: "flex", alignItems: "center" }} className="group">
+    <label style={{ display: "flex", alignItems: "center" }} className="group">
       <VisuallyHidden>
         <input {...mergeProps(inputProps, focusProps)} ref={ref} />
       </VisuallyHidden>
       <div className={checkboxClassName} aria-hidden="true">
-        <svg style={{
+        <svg  style={{
             stroke: "currentColor",
             width: "0.75rem",
             height: "0.75rem"

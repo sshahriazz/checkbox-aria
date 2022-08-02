@@ -12,13 +12,19 @@ input::-webkit-search-decoration {
 .bgIndigo{
   background-color: rgb(99 102 241)
 }
-.isSelected{
+.selected{
   color: rgb(255 255 255);
   border-width: 2px;
   border-radius: 0.25rem
 }
+.bgWhite{
+  background-color: rgb(255 255 255);
+}
 .borderGrayThree{
   border-color: rgb(209 213 219)
+}
+.indigoBorder{
+  border-color: rgb(99 102 241);
 }
 .borderGrayFive{
   border-color: rgb(107 114 128)
