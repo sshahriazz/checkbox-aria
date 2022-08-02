@@ -8,3 +8,12 @@ input::-webkit-search-cancel-button,
 input::-webkit-search-decoration {
   -webkit-appearance: none;
 }
+
+.bgIndigo{
+  background-color: rgb(99 102 241)
+}
+.isSelected{
+  color: rgb(255 255 255);
+  border-width: 2px;
+  border-radius: 0.25rem
+}

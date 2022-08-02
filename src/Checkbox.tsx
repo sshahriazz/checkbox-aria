@@ -6,6 +6,7 @@ import { VisuallyHidden } from "@react-aria/visually-hidden";
 import { useFocusRing } from "@react-aria/focus";
 import { mergeProps } from "@react-aria/utils";
 import classNames from "clsx";
+import "./styles.css"
 
 export function Checkbox(props: AriaCheckboxProps) {
   let state = useToggleState(props);
@@ -14,10 +15,7 @@ export function Checkbox(props: AriaCheckboxProps) {
   let { focusProps, isFocusVisible } = useFocusRing();
 
   let checkboxClassName = classNames(
-    state.isSelected ? "bg-indigo-500 group-active:bg-indigo-600" : "bg-white",
-    "text-white",
-    "border-2",
-    "rounded",
+    state.isSelected ? "bgIndigo group-active:bg-indigo-600" : "isSelected",
     props.isDisabled
       ? "border-gray-300"
       : isFocusVisible || state.isSelected
