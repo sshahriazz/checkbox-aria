@@ -6,6 +6,7 @@ import { VisuallyHidden } from "@react-aria/visually-hidden";
 import { useFocusRing } from "@react-aria/focus";
 import { mergeProps } from "@react-aria/utils";
 import classNames from "clsx";
+import "./styles.css"
 
 export function Checkbox(props: AriaCheckboxProps) {
   let state = useToggleState(props);
@@ -14,42 +15,36 @@ export function Checkbox(props: AriaCheckboxProps) {
   let { focusProps, isFocusVisible } = useFocusRing();
 
   let checkboxClassName = classNames(
-    state.isSelected ? "bg-indigo-500 group-active:bg-indigo-600" : "bg-white",
-    "text-white",
-    "border-2",
-    "rounded",
+    state.isSelected ? "bgIndigo group-active:bg-indigo-600" : "bgWhite",
+    "selected",
     props.isDisabled
-      ? "border-gray-300"
+      ?  "borderGrayThree"
       : isFocusVisible || state.isSelected
-      ? "border-indigo-500 group-active:border-indigo-600"
-      : "border-gray-500 group-active:border-gray-600",
-    "w-5",
-    "h-5",
-    "flex",
-    "flex-shrink-0",
-    "justify-center",
-    "items-center",
-    "mr-2",
-    isFocusVisible ? "shadow-outline" : "",
-    "transition",
-    "ease-in-out",
-    "duration-150"
+      ? "indigoBorder group-active:border-indigo-600"
+      : "borderGrayFive group-active:border-gray-600",
+    "isVisible",
+    isFocusVisible ? "shadowOutline" : "",
+    "transitionVisible"
   );
 
   let labelClassName = classNames(
     props.isDisabled
-      ? "text-gray-400"
-      : "text-gray-700 group-active:text-gray-800",
-    "select-none"
+      ? "textColor"
+      : "textColorGray group-active:text-gray-800",
+    "userSelect"
   );
 
   return (
-    <label className="flex items-center group">
+    <label style={{ display: "flex", alignItems: "center" }} className="group">
       <VisuallyHidden>
         <input {...mergeProps(inputProps, focusProps)} ref={ref} />
       </VisuallyHidden>
       <div className={checkboxClassName} aria-hidden="true">
-        <svg className="stroke-current w-3 h-3" viewBox="0 0 18 18">
+        <svg  style={{
+            stroke: "currentColor",
+            width: "0.75rem",
+            height: "0.75rem"
+          }} viewBox="0 0 18 18">
           <polyline
             points="1 9 7 14 15 4"
             fill="none"
